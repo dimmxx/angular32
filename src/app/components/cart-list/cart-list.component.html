@@ -1,0 +1,42 @@
+<div class="container">
+  <h3>Shopping cart:</h3>
+  <div>
+    <div *ngIf="productsInTheCart.length > 0; else showEmpty">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Sum</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let productInTheCart of productsInTheCart; let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{productInTheCart.item.name}}</td>
+          <td>{{productInTheCart.quantity}}</td>
+          <td>{{productInTheCart.item.price | currency}}</td>
+          <td>{{productInTheCart.sum | currency}}</td>
+        </tr>
+        <tr class="fw-bold">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total: {{retrieveTotal() | currency}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <button (click)="checkOut()" class="btn btn-primary">Checkout</button>
+      </div>
+
+    </div>
+    <ng-template #showEmpty>
+      <p class="fw-lighter fst-italic">The shopping cart is empty</p>
+    </ng-template>
+  </div>
+</div>
