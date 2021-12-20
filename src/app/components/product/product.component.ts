@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit {
   @Input()
   productItem!: ProductModel;
 
+  // мы обсуждали, что лучше реализовать через аутпут, чтобы не внедрять зависимость
   constructor(private readonly cartService: CartService) { }
 
   ngOnInit(): void {

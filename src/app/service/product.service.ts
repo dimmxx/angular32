@@ -7,7 +7,7 @@ import {ProductGroup} from "../model/product-group";
 })
 export class ProductService {
 
-  products: ProductModel[] =
+  private products: ProductModel[] =
     [
       {sku: '23ee4fe1', name: 'Samsung S21', price: 800, category: ProductGroup.mobile, isAvailable: true, description: 'product description'},
       {sku: '8a97f022', name: 'Apple iPhone 12 Pro 256', price: 900, category: ProductGroup.mobile, isAvailable: true, description: 'product description'},
