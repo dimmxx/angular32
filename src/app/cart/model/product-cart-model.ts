@@ -1,4 +1,4 @@
-import {ProductModel} from "./product-model";
+import {ProductModel} from "../../product/model/product-model";
 
 export interface ProductCartModel {
   item: ProductModel;

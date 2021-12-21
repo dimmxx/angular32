@@ -13,7 +13,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let productInTheCart of productsInTheCart; let i = index">
+        <tr *ngFor="let productInTheCart of productsInTheCart; let i = index" [appHighlight] = "color">
           <td>{{i + 1}}</td>
           <td>{{productInTheCart.item.name}}</td>
           <td>{{productInTheCart.quantity}}</td>

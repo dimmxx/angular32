@@ -1,18 +1,19 @@
 <div class="row mb-4">
-  <div class="col">
+  <div class="col-3">
     <div class="fw-light">Category: {{productItem.category}}</div>
     <div class="fw-bold">Product name: {{productItem.name}}</div>
     <div>Description: {{productItem.description}}</div>
     <div>Price: {{productItem.price | currency:'USD':'symbol'}}</div>
+    <div>Quantity in stock: {{productItem.quantity}}</div>
     <div>Available:
       <span *ngIf="productItem.isAvailable" class="badge bg-success">YES</span>
       <span *ngIf="!productItem.isAvailable" class="badge bg-danger"> NO</span>
     </div>
 
   </div>
-  <div class="col">
+  <div class="col-2">
     <div>
-      <button (click)="onAddToCart()" [disabled]="!productItem.isAvailable" class="btn btn-primary">BUY</button>
+      <button (click)="onAddToCart()" [disabled]="!productItem.isAvailable" class="btn btn-primary">Add to cart</button>
     </div>
   </div>
 

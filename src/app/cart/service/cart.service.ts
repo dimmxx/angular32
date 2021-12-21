@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ProductModel} from "../model/product-model";
+import {ProductModel} from "../../product/model/product-model";
 import {ProductCartModel} from "../model/product-cart-model";
 
 @Injectable({
@@ -25,11 +25,12 @@ export class CartService {
     }
 
     if(!found){
-      this.productsInTheCart.push(new class implements ProductCartModel {
-        item = productItem;
-        quantity = 1;
-        sum = productItem.price;
-      })
+      const product = {
+        item: productItem,
+        quantity: 1,
+        sum: productItem.price
+      } as ProductCartModel;
+      this.productsInTheCart.push(product);
     }
     console.log(productItem.name + " has been added into the cart. Unique products in the cart: " + this.productsInTheCart.length);
   }

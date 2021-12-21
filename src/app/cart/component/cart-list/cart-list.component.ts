@@ -11,6 +11,8 @@ export class CartListComponent implements OnInit {
 
   productsInTheCart!: ProductCartModel[];
 
+  color = 'lightgrey';
+
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
