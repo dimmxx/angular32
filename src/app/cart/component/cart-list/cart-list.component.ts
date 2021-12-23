@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CartService} from "../../service/cart.service";
 import {ProductCartModel} from "../../model/product-cart-model";
+import {ProductService} from "../../../product/service/product.service";
 
 @Component({
   selector: 'app-cart-list',
@@ -11,9 +12,10 @@ export class CartListComponent implements OnInit {
 
   productsInTheCart!: ProductCartModel[];
 
-  color = 'lightgrey';
+  color = 'ghostwhite';
 
-  constructor(private cartService: CartService) { }
+  constructor(private readonly cartService: CartService, private readonly productService: ProductService) {
+  }
 
   ngOnInit(): void {
     this.productsInTheCart = this.cartService.retrieveProductsInTheCart();
@@ -27,4 +29,20 @@ export class CartListComponent implements OnInit {
     this.cartService.checkout();
     this.ngOnInit();
   }
+
+  onAddOneItem(productInTheCart: ProductCartModel): void {
+    productInTheCart.quantity += this.productService.purchaseProduct(productInTheCart.item, 1);
+  }
+
+  onRemoveOneItem(productInTheCart: ProductCartModel): void {
+    this.productService.returnProduct(productInTheCart.item, 1);
+    productInTheCart.quantity -= 1;
+  }
+
+  onRemoveAllItems(productInTheCart: ProductCartModel): void {
+    this.productService.returnProduct(productInTheCart.item, productInTheCart.quantity)
+    this.cartService.removeAllItems(productInTheCart);
+    this.productsInTheCart = this.cartService.retrieveProductsInTheCart();
+  }
+
 }

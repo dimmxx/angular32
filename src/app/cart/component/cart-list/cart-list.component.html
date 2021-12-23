@@ -18,7 +18,17 @@
           <td>{{productInTheCart.item.name}}</td>
           <td>{{productInTheCart.quantity}}</td>
           <td>{{productInTheCart.item.price | currency}}</td>
-          <td>{{productInTheCart.sum | currency}}</td>
+          <td>{{productInTheCart.item.price * productInTheCart.quantity | currency}}</td>
+          <td>
+            <div style="display: none" appShowComponent>
+              <app-cart-item
+                [productInTheCart]="productInTheCart"
+                (addOneItem)="onAddOneItem($event)"
+                (removeOneItem)="onRemoveOneItem($event)"
+                (removeAllItems)="onRemoveAllItems($event)">
+              </app-cart-item>
+            </div>
+          </td>
         </tr>
         <tr class="fw-bold">
           <td></td>
@@ -26,6 +36,7 @@
           <td></td>
           <td></td>
           <td>Total: {{retrieveTotal() | currency}}</td>
+          <td></td>
         </tr>
         </tbody>
       </table>

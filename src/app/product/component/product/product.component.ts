@@ -13,11 +13,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  checkAvailability(): void {
-
-  }
-
   onAddToCart(): void {
     this.addToCart.emit(this.productItem);
   }

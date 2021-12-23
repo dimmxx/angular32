@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ProductModel} from "../../product/model/product-model";
 import {ProductCartModel} from "../model/product-cart-model";
 
@@ -8,27 +8,23 @@ import {ProductCartModel} from "../model/product-cart-model";
 export class CartService {
 
   productsInTheCart: ProductCartModel[] = [];
-  total: number = 0;
 
-  constructor() { }
+  constructor() {
+  }
 
   addProduct(productItem: ProductModel): void {
     let found = false;
-    this.total = this.total + productItem.price;
-    for(let i = 0; i < this.productsInTheCart.length; i++){
-      if(productItem.sku === this.productsInTheCart[i].item.sku) {
+    for (let i = 0; i < this.productsInTheCart.length; i++) {
+      if (productItem.sku === this.productsInTheCart[i].item.sku) {
         found = true;
         this.productsInTheCart[i].quantity++;
-        this.productsInTheCart[i].sum = this.productsInTheCart[i].quantity * productItem.price;
         break;
       }
     }
 
-    if(!found){
+    if (!found) {
       const product = {
-        item: productItem,
-        quantity: 1,
-        sum: productItem.price
+        item: productItem, quantity: 1
       } as ProductCartModel;
       this.productsInTheCart.push(product);
     }
@@ -40,12 +36,19 @@ export class CartService {
   }
 
   retrieveCartTotal(): number {
-    return this.total;
+    let total = 0;
+    for(let i = 0; i < this.productsInTheCart.length; i++){
+      total += this.productsInTheCart[i].item.price * this.productsInTheCart[i].quantity;
+    }
+    return total;
+  }
+
+  removeAllItems(productInTheCart: ProductCartModel): void {
+    this.productsInTheCart = this.productsInTheCart
+      .filter(item => item.item.sku != productInTheCart.item.sku);
   }
 
   checkout(): void {
     this.productsInTheCart = [];
-    this.total = 0;
   }
-
 }
