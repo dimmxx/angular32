@@ -12,7 +12,9 @@ export class CartListComponent implements OnInit {
 
   productsInTheCart!: ProductCartModel[];
 
-  color = 'ghostwhite';
+  color: string = 'gainsboro';
+
+  currentRowIndex: number = -1;
 
   constructor(private readonly cartService: CartService, private readonly productService: ProductService) {
   }
@@ -43,6 +45,14 @@ export class CartListComponent implements OnInit {
     this.productService.returnProduct(productInTheCart.item, productInTheCart.quantity)
     this.cartService.removeAllItems(productInTheCart);
     this.productsInTheCart = this.cartService.retrieveProductsInTheCart();
+  }
+
+  onMouseEnter(i: number): void {
+    this.currentRowIndex = i;
+  }
+
+  onMouseLeave(): void {
+    this.currentRowIndex = -1;
   }
 
 }

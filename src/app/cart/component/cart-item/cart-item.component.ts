@@ -34,7 +34,4 @@ export class CartItemComponent {
     console.log('removing all items of ' + this.productInTheCart.item.name);
     this.removeAllItems.emit(this.productInTheCart);
   }
-
-
-
 }

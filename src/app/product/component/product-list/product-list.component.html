@@ -1,7 +1,45 @@
-<div class="container">
-  <h3>Product list:</h3>
-  <div *ngFor="let product of products">
-    <app-product [productItem]="product"
-                 (addToCart)="onAddToCartOne($event)"></app-product>
-  </div>
-</div>
+<!--<div class="container">-->
+<!--  <h3>Product list:</h3>-->
+<!--  <div *ngFor="let product of products">-->
+<!--    <app-product [productItem]="product"-->
+<!--                 (addToCart)="onAddToCartOne($event)"></app-product>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="collection">-->
+<!--  &lt;!&ndash; Imagine a loop produced this... &ndash;&gt;-->
+
+<!--  <ng-container *ngFor="let product of products; let i = index">-->
+
+<!--    <div class="product">-->
+<!--      <a class="product__image" href="#">-->
+<!--        <img src="./assets/no-product-image.jpeg" width="100"  height="100">-->
+<!--      </a>-->
+<!--      <div class="product__name">-->
+<!--        <p>-->
+<!--          <a href="#">Product Name</a>-->
+<!--        </p>-->
+<!--      </div>-->
+<!--      <div class="product__price">-->
+<!--        <p>$10.0</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </ng-container>-->
+
+<!--</div>-->
+
+
+
+
+<div class="collection">
+  <!-- Imagine a loop produced this... -->
+
+  <ng-container *ngFor="let product of products; let i = index">
+
+    <app-product [productItem]="product"-->
+                   (addToCart)="onAddToCartOne($event)"></app-product>
+
+        </ng-container>
+
+      </div>

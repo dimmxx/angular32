@@ -12,7 +12,8 @@ import { ShowComponentDirective } from './show-component.directive';
     CommonModule
   ],
   exports: [
-    HighlightDirective
+    HighlightDirective,
+    ShowComponentDirective
   ]
 })
 export class SharedModule { }
