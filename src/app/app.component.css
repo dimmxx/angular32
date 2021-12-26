@@ -1,5 +1,9 @@
-.image{
-  height:80em; background-size:cover; width:auto;
+.background-image{
+  height:auto;
+  width:auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-size:cover;
   background-image:url('src/assets/background.png');
-  background-position:50% 50%;
+  background-position:100% 100%;
 }

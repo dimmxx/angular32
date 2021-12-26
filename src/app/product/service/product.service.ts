@@ -9,12 +9,13 @@ export class ProductService {
 
   private products: ProductModel[] = [{
     sku: '23ee4fe1',
-    name: 'Samsung S21',
+    name: 'Samsung S21 512',
     price: 800,
     category: ProductGroup.mobile,
     isAvailable: true,
     description: 'product description',
-    quantity: 10
+    quantity: 10,
+    imageUrl: "./assets/no-product-image.jpeg"
   }, {
     sku: '8a97f022',
     name: 'Apple iPhone 12 Pro 256',
@@ -22,7 +23,8 @@ export class ProductService {
     category: ProductGroup.mobile,
     isAvailable: true,
     description: 'product description',
-    quantity: 10
+    quantity: 10,
+    imageUrl: "./assets/no-product-image.jpeg"
   }, {
     sku: '8a97f022',
     name: 'Apple iPhone 13 Pro Max 256',
@@ -30,7 +32,8 @@ export class ProductService {
     category: ProductGroup.mobile,
     isAvailable: false,
     description: 'product description',
-    quantity: 0
+    quantity: 0,
+    imageUrl: "./assets/no-product-image.jpeg"
   }, {
     sku: 'bc77a43b',
     name: 'Angular in action',
@@ -38,7 +41,9 @@ export class ProductService {
     category: ProductGroup.book,
     isAvailable: true,
     description: 'product description',
-    quantity: 10
+    quantity: 10,
+    imageUrl: "./assets/no-product-image.jpeg"
+
   }, {
     sku: '72c48ea8',
     name: 'MacBook Pro M1',
@@ -46,7 +51,26 @@ export class ProductService {
     category: ProductGroup.computer,
     isAvailable: true,
     description: 'product description',
-    quantity: 10
+    quantity: 10,
+    imageUrl: "./assets/no-product-image.jpeg"
+  }, {
+    sku: 't6ashfg6',
+    name: 'Clean Code',
+    price: 30,
+    category: ProductGroup.book,
+    isAvailable: true,
+    description: 'product description',
+    quantity: 10,
+    imageUrl: "./assets/no-product-image.jpeg"
+  }, {
+    sku: 'kl38hdgt',
+    name: 'HP Spectre x360',
+    price: 900,
+    category: ProductGroup.computer,
+    isAvailable: true,
+    description: 'product description',
+    quantity: 10,
+    imageUrl: "./assets/no-product-image.jpeg"
   },];
 
   constructor() {

@@ -8,6 +8,7 @@ export interface ProductModel {
   category: ProductGroup
   isAvailable: boolean
   quantity: number;
+  imageUrl: string;
 }
 
 
