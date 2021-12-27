@@ -1,14 +1,64 @@
-<button (click)="onAddOneItem()" [disabled]="!productInTheCart.item.isAvailable" class="btn btn-sm btn-outline-primary m-lg-1"
-        type="button">
-  <i class="bi bi-plus-circle-fill"></i>
-</button>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <a class="product__image" href="#"><img alt="image" src="{{productInTheCart.item.imageUrl}}"></a>
+    </div>
+    <div class="col-8">
+      <div>Available:
+        <span *ngIf="productInTheCart.item.isAvailable" class="badge bg-success">YES</span>
+        <span *ngIf="!productInTheCart.item.isAvailable" class="badge bg-danger"> NO</span>
+      </div>
+      <div>Quantity in stock: {{productInTheCart.item.quantity}}</div>
 
-<button (click)="onRemoveOneItem()" [disabled]="productInTheCart.quantity === 0" class="btn btn-sm btn-outline-primary m-lg-1"
-        type="button">
-  <i class="bi bi-dash-circle-fill"></i>
-</button>
+      <button (click)="onAddOneItem()" [disabled]="!productInTheCart.item.isAvailable" class="btn btn-sm btn-primary m-lg-1"
+              type="button">
+        <i class="bi bi-plus-circle-fill"></i>
+      </button>
 
-<button (click)="onRemoveAllItems()" class="btn btn-sm btn-outline-danger m-lg-1" type="button">
-  <i class="bi bi-trash-fill"></i>
-</button>
+      <button (click)="onRemoveOneItem()" [disabled]="productInTheCart.quantity === 0" class="btn btn-sm btn-primary m-lg-1"
+              type="button">
+        <i class="bi bi-dash-circle-fill"></i>
+      </button>
+
+      <button (click)="onRemoveAllItems()" class="btn btn-sm btn-danger m-lg-1" type="button">
+        <i class="bi bi-trash-fill"></i>
+      </button>
+
+
+
+
+        <form style="display: flex">
+          <div class="form-group col-lg-5">
+            <input type="text" class="form-control" placeholder="quantity">
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary m-lg-1"><i class="bi bi-check-circle-fill"></i></button>
+        </form>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
