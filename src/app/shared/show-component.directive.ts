@@ -1,4 +1,4 @@
-import {Directive, HostBinding, HostListener, Input} from '@angular/core';
+import {Directive, ElementRef, HostBinding, HostListener, Input} from '@angular/core';
 
 @Directive({
   selector: '[appShowComponent]'
@@ -6,16 +6,18 @@ import {Directive, HostBinding, HostListener, Input} from '@angular/core';
 export class ShowComponentDirective {
 
   @Input()
-  appShowComponent!: boolean;
+  appShowComponent!: string;
 
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.appShowComponent = true;
+
+    this.el.nativeElement.querySelector("app-cart-item").style.display = '';
+
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-
+    this.el.nativeElement.querySelector("app-cart-item").style.display = 'none';
   }
 
 

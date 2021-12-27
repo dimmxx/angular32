@@ -16,21 +16,21 @@
         <tbody>
 
         <ng-container *ngFor="let productInTheCart of productsInTheCart; let i = index">
-          <tr (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()" [appHighlight]="color">
+          <!--           * could be done in other way (without directive). Look * comments -->
+          <tr [appShowComponent]="childStyleDisplay" [appHighlight]="color">
             <td>{{i + 1}}</td>
             <td>{{productInTheCart.item.name}}</td>
             <td>{{productInTheCart.quantity}}</td>
             <td>{{productInTheCart.item.price | currency}}</td>
             <td>{{productInTheCart.item.price * productInTheCart.quantity | currency}}</td>
             <td>
-              <div *ngIf="currentRowIndex === i">
-                <app-cart-item
+              <app-cart-item
+                  [style.display]="childStyleDisplay"
                   (addOneItem)="onAddOneItem($event)"
                   (removeAllItems)="onRemoveAllItems($event)"
                   (removeOneItem)="onRemoveOneItem($event)"
                   [productInTheCart]="productInTheCart">
                 </app-cart-item>
-              </div>
             </td>
           </tr>
         </ng-container>
@@ -58,3 +58,6 @@
 
   </div>
 </div>
+
+
+<!---->

@@ -14,7 +14,7 @@ export class CartListComponent implements OnInit {
 
   color: string = 'gainsboro';
 
-  currentRowIndex: number = -1;
+  childStyleDisplay: string = 'none';
 
   constructor(private readonly cartService: CartService, private readonly productService: ProductService) {
   }
@@ -46,13 +46,4 @@ export class CartListComponent implements OnInit {
     this.cartService.removeAllItems(productInTheCart);
     this.productsInTheCart = this.cartService.retrieveProductsInTheCart();
   }
-
-  onMouseEnter(i: number): void {
-    this.currentRowIndex = i;
-  }
-
-  onMouseLeave(): void {
-    this.currentRowIndex = -1;
-  }
-
 }
