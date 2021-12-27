@@ -16,7 +16,7 @@
         <tbody>
 
         <ng-container *ngFor="let productInTheCart of productsInTheCart; let i = index">
-          <!--           * could be done in other way (without directive). Look * comments -->
+          <!--           could be done in other way (without directive). Look * comments -->
           <tr [appShowComponent]="childStyleDisplay" [appHighlight]="color">
             <td>{{i + 1}}</td>
             <td>{{productInTheCart.item.name}}</td>
@@ -60,4 +60,35 @@
 </div>
 
 
-<!---->
+<!--*-->
+<!--<tr (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()" [appHighlight]="color">-->
+<!--  <td>{{i + 1}}</td>-->
+<!--  <td>{{productInTheCart.item.name}}</td>-->
+<!--  <td>{{productInTheCart.quantity}}</td>-->
+<!--  <td>{{productInTheCart.item.price | currency}}</td>-->
+<!--  <td>{{productInTheCart.item.price * productInTheCart.quantity | currency}}</td>-->
+<!--  <td>-->
+<!--    <div *ngIf="currentRowIndex === i">-->
+<!--      <app-cart-item-->
+<!--        ...-->
+<!--      </app-cart-item>-->
+<!--    </div>-->
+<!--  </td>-->
+<!--</tr>-->
+
+<!--@Component({-->
+<!--  selector: 'app-cart-list',-->
+<!--  templateUrl: './cart-list.component.html',-->
+<!--  })-->
+
+<!--export class CartListComponent implements OnInit {-->
+<!--...-->
+<!--onMouseEnter(i: number): void {-->
+<!--this.currentRowIndex = i;-->
+<!--}-->
+
+<!--onMouseLeave(): void {-->
+<!--this.currentRowIndex = -1;-->
+<!--}-->
+<!--  }-->
+
