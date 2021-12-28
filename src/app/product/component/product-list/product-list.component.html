@@ -1,5 +1,6 @@
 <div class="container">
 <div class="collection">
+  <!-- Для чего тут  ng-container ? -->
   <ng-container *ngFor="let product of products; let i = index">
     <app-product [productItem]="product"
                    (addToCart)="onAddToCartOne($event)">

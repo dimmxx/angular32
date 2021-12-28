@@ -9,11 +9,10 @@ export class CartService {
 
   productsInTheCart: ProductCartModel[] = [];
 
-  constructor() {
-  }
-
   addProduct(productItem: ProductModel): void {
     let found = false;
+    // вместо for посмотрите на использование метода find или findIndex
+    // код станет проще
     for (let i = 0; i < this.productsInTheCart.length; i++) {
       if (productItem.sku === this.productsInTheCart[i].item.sku) {
         found = true;
@@ -22,22 +21,11 @@ export class CartService {
       }
     }
 
-<<<<<<< HEAD:src/app/service/cart.service.ts
-    if(!found){
-      const product = {
-        item: productItem,
-        quantity: 1,
-        sum: productItem.price
-      } as ProductCartModel;
-
-      this.productsInTheCart.push(product)
-=======
     if (!found) {
       const product = {
         item: productItem, quantity: 1
       } as ProductCartModel;
       this.productsInTheCart.push(product);
->>>>>>> 55398c6abb534be7b9cde7b22e71b9602bc759d7:src/app/cart/service/cart.service.ts
     }
     console.log(productItem.name + " has been added into the cart. Unique products in the cart: " + this.productsInTheCart.length);
   }
@@ -48,6 +36,7 @@ export class CartService {
 
   retrieveCartTotal(): number {
     let total = 0;
+    // посмотрите как использовать метод массива reduce
     for(let i = 0; i < this.productsInTheCart.length; i++){
       total += this.productsInTheCart[i].item.price * this.productsInTheCart[i].quantity;
     }
