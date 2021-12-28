@@ -1,0 +1,23 @@
+<div class="product">
+
+  <div class="fw-light float-end">Category: {{productItem.category}}</div>
+  <a class="product__image" href="#"><img alt="image" src="{{productItem.imageUrl}}"></a>
+
+  <div>Available:
+    <span *ngIf="productItem.isAvailable" class="badge bg-success">YES</span>
+    <span *ngIf="!productItem.isAvailable" class="badge bg-danger"> NO</span>
+  </div>
+
+  <div class="fw-bold">{{productItem.name}}</div>
+  <div>Description: {{productItem.description}}</div>
+  <div class="fw-bold">Price: {{productItem.price | currency:'USD':'symbol'}}</div>
+  <div>Quantity in stock: {{productItem.quantity}}</div>
+
+  <div class="mt-2 float-end">
+    <button (click)="onAddToCart()" [disabled]="!productItem.isAvailable" class="btn btn-primary">
+      <i class="bi bi-cart4"></i>
+      Add to cart
+    </button>
+  </div>
+
+</div>

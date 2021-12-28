@@ -7,6 +7,8 @@ export interface ProductModel {
   price: number
   category: ProductGroup
   isAvailable: boolean
+  quantity: number;
+  imageUrl: string;
 }
 
 

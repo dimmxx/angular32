@@ -1,0 +1,9 @@
+.background-image{
+  height:auto;
+  width:auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-size:cover;
+  background-image:url('src/assets/background.png');
+  background-position:100% 100%;
+}

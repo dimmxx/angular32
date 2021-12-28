@@ -1,0 +1,94 @@
+<div class="container">
+  <h3><i class="bi bi-cart4"></i>Shopping cart:</h3>
+  <div>
+    <div *ngIf="productsInTheCart.length > 0; else showEmpty">
+      <table class="table">
+        <thead>
+        <tr>
+          <th style="width: 10%">#</th>
+          <th style="width: 30%">Item</th>
+          <th style="width: 10%">Quantity</th>
+          <th style="width: 10%;">Price</th>
+          <th style="width: 10%;">Sum</th>
+          <th style="width: 30%"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <ng-container *ngFor="let productInTheCart of productsInTheCart; let i = index">
+          <!--           could be done in other way (without directive). Look * comments -->
+          <tr [appHighlight]="color" [appShowComponent]="childStyleDisplay">
+            <td>{{i + 1}}</td>
+            <td>{{productInTheCart.item.name}}</td>
+            <td>{{productInTheCart.quantity}}</td>
+            <td>{{productInTheCart.item.price | currency}}</td>
+            <td>{{productInTheCart.item.price * productInTheCart.quantity | currency}}</td>
+            <td>
+              <app-cart-item
+                (addOneItem)="onAddOneItem($event)"
+                (removeAllItems)="onRemoveAllItems($event)"
+                (removeOneItem)="onRemoveOneItem($event)"
+                [productInTheCart]="productInTheCart"
+                [style.display]="childStyleDisplay">
+              </app-cart-item>
+            </td>
+          </tr>
+        </ng-container>
+
+        <tr class="fw-bold">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total: {{retrieveTotal() | currency}}</td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <button (click)="checkOut()" class="btn btn-primary">Checkout</button>
+      </div>
+
+    </div>
+
+    <ng-template #showEmpty>
+      <span class="fw-lighter fst-italic">The shopping cart is empty</span>
+    </ng-template>
+
+  </div>
+</div>
+
+
+<!--*-->
+<!--<tr (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()" [appHighlight]="color">-->
+<!--  <td>{{i + 1}}</td>-->
+<!--  <td>{{productInTheCart.item.name}}</td>-->
+<!--  <td>{{productInTheCart.quantity}}</td>-->
+<!--  <td>{{productInTheCart.item.price | currency}}</td>-->
+<!--  <td>{{productInTheCart.item.price * productInTheCart.quantity | currency}}</td>-->
+<!--  <td>-->
+<!--    <div *ngIf="currentRowIndex === i">-->
+<!--      <app-cart-item-->
+<!--        ...-->
+<!--      </app-cart-item>-->
+<!--    </div>-->
+<!--  </td>-->
+<!--</tr>-->
+
+<!--@Component({-->
+<!--  selector: 'app-cart-list',-->
+<!--  templateUrl: './cart-list.component.html',-->
+<!--  })-->
+
+<!--export class CartListComponent implements OnInit {-->
+<!--...-->
+<!--onMouseEnter(i: number): void {-->
+<!--this.currentRowIndex = i;-->
+<!--}-->
+
+<!--onMouseLeave(): void {-->
+<!--this.currentRowIndex = -1;-->
+<!--}-->
+<!--  }-->
+
