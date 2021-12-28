@@ -17,7 +17,7 @@
 
         <ng-container *ngFor="let productInTheCart of productsInTheCart; let i = index">
           <!--           could be done in other way (without directive). Look * comments -->
-          <tr [appShowComponent]="childStyleDisplay" [appHighlight]="color">
+          <tr [appHighlight]="color" [appShowComponent]="childStyleDisplay">
             <td>{{i + 1}}</td>
             <td>{{productInTheCart.item.name}}</td>
             <td>{{productInTheCart.quantity}}</td>
@@ -25,12 +25,12 @@
             <td>{{productInTheCart.item.price * productInTheCart.quantity | currency}}</td>
             <td>
               <app-cart-item
-                  [style.display]="childStyleDisplay"
-                  (addOneItem)="onAddOneItem($event)"
-                  (removeAllItems)="onRemoveAllItems($event)"
-                  (removeOneItem)="onRemoveOneItem($event)"
-                  [productInTheCart]="productInTheCart">
-                </app-cart-item>
+                (addOneItem)="onAddOneItem($event)"
+                (removeAllItems)="onRemoveAllItems($event)"
+                (removeOneItem)="onRemoveOneItem($event)"
+                [productInTheCart]="productInTheCart"
+                [style.display]="childStyleDisplay">
+              </app-cart-item>
             </td>
           </tr>
         </ng-container>

@@ -11,9 +11,7 @@ export class ShowComponentDirective {
   constructor(private el: ElementRef) { }
 
   @HostListener('mouseenter') onMouseEnter() {
-
     this.el.nativeElement.querySelector("app-cart-item").style.display = '';
-
   }
 
   @HostListener('mouseleave') onMouseLeave() {
