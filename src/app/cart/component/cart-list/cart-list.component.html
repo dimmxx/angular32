@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Shopping cart:</h3>
+  <h3><i class="bi bi-cart4"></i>Shopping cart:</h3>
   <div>
     <div *ngIf="productsInTheCart.length > 0; else showEmpty">
       <table class="table">
@@ -53,7 +53,7 @@
     </div>
 
     <ng-template #showEmpty>
-      <p class="fw-lighter fst-italic">The shopping cart is empty</p>
+      <span class="fw-lighter fst-italic">The shopping cart is empty</span>
     </ng-template>
 
   </div>
